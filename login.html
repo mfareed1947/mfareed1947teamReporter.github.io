@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sign Up</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Log-in form</h2>
+  <form action="#">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="paswd" placeholder="Enter password" name="pwd">
+    </div>
+    <button type="button" id="save_btn" class="btn btn-default" onclick="saveData()">Log-in</button>
+    <button type="button" class="btn btn-default"><a href="./signup.html">Sign-up</a></button>  
+</form>
+</div>
+
+<script>
+    function saveData()
+{
+let email,paswd;
+
+email=document.getElementById("email").value;
+paswd=document.getElementById("paswd").value;
+
+let user_record=new Array();
+user_record=JSON.parse(localStorage.getItem("user"))?JSON.parse(localStorage.getItem("user")):[]
+
+if(user_record.some((v)=>{
+        return v.email==email&&v.password===paswd}
+        )
+    )
+{
+    alert("Login Succesfully");
+    let current_user= user_record.filter((v)=>{return v.email==email&&v.password===paswd})[0]
+   localStorage.setItem("name",current_user.name) 
+   localStorage.setItem("email",current_user.email)
+    window.location.href="profile.html"
+}else{
+    alert("Login Fail")
+
+}
+}
+</script>
+
+</body>
+</html>

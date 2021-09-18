@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sign Up</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./style/log/sign.css">
+</head>
+<body>
+<!-- ********************bootstrap navbar************************ -->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Team Reproter</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" onclick="logout()"><span class="glyphicon glyphicon-log-in" ></span> Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+<!-- ********************bootstrap navbar************************ -->
+
+<div class="container">
+  <h2>Profile</h2>
+  <hr>
+  <h3>Welcome</h3>
+  <h4>Name</h4><script>document.write(localStorage.getItem("name"))</script>
+</div>
+ <!-- Button trigger modal -->
+ <button id="modalBBtn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <i class="bi bi-plus"></i>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create new Team</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- input box -->
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="teamName" placeholder="Team Name">
+                </div>
+                <!-- select bar  -->
+                <select id=selectCategory class="form-select" aria-label="Default select example">
+                    <!-- <option selected>Select Category</option> -->
+                    <option value="Testing Team">Testing Team</option>
+                    <option value="Development team">Development team</option>
+                    <option value="Marketing team">Marketing team</option>
+                </select>
+                <!-- end select bar -->
+                <!-- input box -->
+                <hr>
+                <h5 id="addMembersHead" class="mt-2">Add Members</h5>
+                <hr>
+                <div class="mt-3">
+                    <ul id="addedMembers" class="addedMembers" id="membersUl">
+
+
+                    </ul>
+                </div>
+                <!-- <hr>
+                <div>
+                    <ul id="selectedMembers">
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div> -->
+                <hr>
+                <div class="mt-3">
+                    <ul class="membersUl" id="membersUl">
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="createTeam" type="button" class="btn btn-primary"
+                    data-bs-dismiss="modal">Create</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+ <!-- ************* teams own div ************** -->
+ <div class="container teamsDisplay mt-5">
+    <h4 class="mb-2 text-primary">Teams you own</h4>
+    <hr>
+    <div id="teamsDiv" class="card ">
+        <!-- <div class="card-body">
+            <h5>Team Name</h5>
+            <h6>members : <span>user1,user2,user3</span></h6>
+        </div> -->
+    </div>
+</div>
+
+<!-- ************* end teams own div ************** -->
+
+<!-- ************* teams own div ************** -->
+<div class="container teamsDisplay mt-5">
+    <h4 class="mb-2 text-primary">Teams you're Part of</h4>
+    <hr>
+    <div id="teamsYouPartDiv" class="card ">
+        <!-- <div class="card-body">
+            <h5>Team Name</h5>
+            <h6>members : <span>user1,user2,user3</span></h6>
+        </div> -->
+    </div>
+</div>
+
+<!-- ************* end teams own div ************** -->
+
+
+
+
+
+
+
+
+<script>
+let name=localStorage.getItem("name")?localStorage.getItem("name"):''
+console.log(name);
+if(name==''){
+    alert("u need to login first")
+    window.location.href="login.html"
+}
+
+
+function logout()
+{
+localStorage.removeItem("name");
+localStorage.removeItem("email");
+window.location.href="login.html"
+}
+
+// getting elements from dom
+let modalBBtn = document.getElementById("modalBBtn");
+let createTeam = document.getElementById("createTeam");
+let selectCategory = document.getElementById("selectCategory");
+let teamName = document.getElementById("teamName");
+let memberEmail = document.getElementById("memberEmail");
+let teamsDiv = document.getElementById("teamsDiv");
+let deleteTeam = document.getElementById("deleteTeam");
+let addMoreBtn = document.getElementById("addMoreBtn");
+let addMoreInp = document.getElementById("addMoreInp");
+let logoutBtn = document.getElementById("logoutBtn");
+let membersUl = document.getElementById("membersUl");
+let membersModal = document.getElementsByClassName("membersModal");
+let team;
+let index;
+let teamsObj;
+let membersArr = "";
+let arrForMember = []
+
+
+
+
+
+</script>
+
+</body>
+</html>

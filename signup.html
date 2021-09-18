@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sign Up</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Sign Up form</h2>
+  <form action="#">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="usname" placeholder="Enter name" name="usname">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="paswd" placeholder="Enter password" name="pwd">
+    </div>
+    <button type="button" id="save_btn" class="btn btn-default" onclick="saveData()">Submit</button>
+    <button type="button" class="btn btn-default"><a href="../login.html">Log-In</a></button>
+  </form>
+</div>
+
+
+<script src="./javascript/signup.js"></script>
+</body>
+</html>
